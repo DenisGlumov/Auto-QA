@@ -2,7 +2,6 @@
  * HomeWorkApp2
  *
  * @author Denis Glumov
- *
  * @version 11.09.2021
  */
 
@@ -30,7 +29,7 @@ class HomeWorkApp2 {
     }
 
     static boolean sumNumbers(int a, int b) {
-        return a + b > 10 && a + b <= 20 ? true : false;
+        return a + b > 10 && a + b <= 20 ;
     }
 
     static void numbers(int a) {
@@ -38,7 +37,7 @@ class HomeWorkApp2 {
     }
 
     static boolean numberBoolean(int a) {
-        return a < 0 ? true : false;
+        return a < 0 ;
     }
 
     static void numberString(String a, int b) {
@@ -47,7 +46,7 @@ class HomeWorkApp2 {
         }
     }
 
-    static boolean years (int a) {
+    static boolean years(int a) {
         if (a % 4 == 0 && a % 100 != 0 && a % 400 != 0)
             return true;
 
