@@ -2,7 +2,7 @@
  * HomeWorkApp3
  *
  * @author Denis Glumov
- * @version 14.09.2021
+ * @version 15.09.2021
  */
 
 import java.util.Arrays;
@@ -14,7 +14,15 @@ class HomeWorkApp3 {
         intArrayNull();
         intArrayMultiply();
         twoArray();
-        System.out.println(arrayEnter());
+        System.out.println(Arrays.toString(newArray(3, 5)));
+        sortArray();
+        int[] oneArray = {1, 1, 1, 2, 1};
+        int[] twoArray = {2, 2, 2, 1, 2, 2, 10, 1};
+        System.out.println(checkBalance(oneArray));
+        System.out.println(checkBalance(twoArray));
+        int[] oneShift = {1, 2, 3};
+        int[] twoShift = {3, 5, 6, 1};
+        System.out.println(Arrays.toString(shiftArray(oneShift, 1)));
 
     }
 
@@ -53,7 +61,7 @@ class HomeWorkApp3 {
         int[][] a = new int[5][5];
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
-                if (i == j || i + j == 4) {
+                if (i == j || i + j == a.length - 1) {
                     a[i][j] = 1;
                 } else {
                     a[i][j] = 0;
@@ -64,18 +72,65 @@ class HomeWorkApp3 {
         }
     }
 
-    static String arrayEnter() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите длину:");
-        int len = sc.nextInt();
-        System.out.println("Введите значение:");
-        int initialValue = sc.nextInt();
-        sc.close();
+    /**
+     * Оставлю для себя. Как пример работы через консоль
+     * static String arrayEnter() {
+     * Scanner sc = new Scanner(System.in);
+     * System.out.println("Введите длину:");
+     * int len = sc.nextInt();
+     * System.out.println("Введите значение:");
+     * int initialValue = sc.nextInt();
+     * sc.close();
+     * int[] a = new int[len];
+     * for (int i = 0; i < a.length; i++) {
+     * a[i] = initialValue;
+     * }
+     * return Arrays.toString(a);
+     * <p>
+     * }
+     */
+
+    static int[] newArray(int len, int initialValue) {
         int[] a = new int[len];
-        for (int i = 0; i < a.length; i++) {
-            a[i] = initialValue;
-        }
-        return Arrays.toString(a);
+        Arrays.fill(a, initialValue);
+        return a;
+    }
+
+    static void sortArray() {
+        int[] a = {3, 35, 66, 1, -2, 108, 67, 24};
+        Arrays.sort(a);
+        System.out.println("Минимальное значение " + a[0]);
+        System.out.println("Максимальное значение " + a[a.length - 1]);
 
     }
+
+    static boolean checkBalance(int[] arr) {
+        int left = 0;
+        int right = arr[arr.length - 1];
+        for (int i = 0; i < arr.length - 1; i++) {
+            left += arr[i];
+        }
+        for (int i = arr.length - 2; i > 0; i--) {
+            if (left > right) {
+                left -= arr[i];
+                right += arr[i];
+            }
+            if (left == right) {
+                break;
+            }
+        }
+        System.out.println("Левая часть " + left);
+        System.out.println("Правая часть " + right);
+        return left == right;
+    }
+
+    static int[] shiftArray(int[] arr, int n) {
+        int b = arr[n];
+        for (int i = 0; i < arr.length; i += 1 + n) {
+            arr[(i + n) % arr.length] = arr[i];
+        }
+        arr[(n + n) % arr.length] = b;
+        return arr;
+    }
+
 }
