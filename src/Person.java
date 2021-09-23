@@ -1,3 +1,10 @@
+/**
+ * HomeWorkApp5
+ *
+ * @author Denis Glumov
+ * @version 23.09.2021
+ */
+
 class Person {
     private String fio;
     private String position;
