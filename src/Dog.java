@@ -6,24 +6,7 @@
  */
 
 class Dog extends Animal {
-    Dog(String name, int len, int len2) {
-        super(name, len, len2);
+    Dog (int runLimit, int swimLimit) {
+        super(runLimit, swimLimit);
     }
-
-    public void run(int len) {
-        if (len > 500) {
-            System.out.println(name + " не может столько пробежать");
-        } else {
-            System.out.println(name + " пробежал " + len + " м");
-        }
-    }
-
-    public void swim(int len2) {
-        if (len2 > 10) {
-            System.out.println(name + " не может столько проплыть");
-        } else {
-            System.out.println(name + " проплыл " + len2 + " м");
-        }
-    }
-
 }

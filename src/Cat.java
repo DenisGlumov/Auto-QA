@@ -6,20 +6,13 @@
  */
 
 class Cat extends Animal {
-    Cat(String name, int len, int len2) {
-        super(name, len, len2);
+    Cat (int runLimit, int swimLimit) {
+        super(runLimit, swimLimit);
     }
 
-    public void run(int len) {
-        if (len > 200) {
-            System.out.println(name + " не может столько пробежать");
-        } else {
-            System.out.println(name + " пробежал " + len + " м");
-        }
-    }
-
-    public void swim(int len2) {
-        System.out.println(name + " не умеет плавать");
+    @Override
+    public String swim(int distance) {
+        return getClassName() + " не может плавать";
     }
 
 }

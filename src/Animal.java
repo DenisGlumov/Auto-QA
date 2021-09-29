@@ -6,14 +6,47 @@
  */
 
 abstract class Animal implements IAnimal {
-    protected String name;
-    protected int len;
-    protected int len2;
+    private int runLimit;
+    private int swimLimit;
+    private String className;
+    private static int countOFAnimals;
 
-    Animal(String name, int len, int len2) {
-        this.name = name;
-        this.len = len;
-        this.len2 = len2;
-
+    Animal(int runLimit, int swimLimit) {
+        this.runLimit = runLimit;
+        this.swimLimit = swimLimit;
+        className = getClass().getSimpleName();
+        countOFAnimals++;
     }
+
+    public int getCountOFAnimals() {
+        return countOFAnimals;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    @Override
+    public String run(int distance) {
+        if (distance > runLimit) {
+            return className + " не может пробежать " + distance;
+        } else {
+                return className + " пробежал " + distance;
+            }
+    }
+
+    public String swim (int distance) {
+        if (distance > swimLimit) {
+            return className + " не может проплыть " + distance;
+        } else {
+            return className + " проплыл " + distance;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return className + ". runLimit: " + runLimit + ", swimLimit: " + swimLimit;
+    }
+
+
 }

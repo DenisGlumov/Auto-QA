@@ -6,8 +6,7 @@
  */
 
 interface IAnimal {
-    void run(int len);
-
-    void swim(int len2);
+    String run(int distance);
+    String swim(int distance);
 
 }
