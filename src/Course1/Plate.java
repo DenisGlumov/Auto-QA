@@ -1,3 +1,5 @@
+package Course1;
+
 /**
  * HomeWorkApp7
  *
@@ -7,13 +9,19 @@
 
 public class Plate {
     private int food;
+    private int volume;
 
-    public Plate(int food) {
+    public Plate(int volume, int food) {
         this.food = food;
+        this.volume = volume;
     }
 
-    public void decreaseFood(int n) {
-        food -= n;
+    boolean decreaseFood(int portion) {
+        if (food<portion) {
+            return false;
+        }
+        food -= portion;
+        return true;
     }
 
     @Override
@@ -25,11 +33,13 @@ public class Plate {
     //    System.out.println("plate: " + food);
     //}
 
-    public void additive(int a) {
-        food += a;
+    public void add(int food) {
+        if (this.food + food <= volume ) {
+            this.food +=food;
+        }
     }
 
-    public int getFood() {
-        return food;
-    }
+    //public int getFood() {
+    //    return food;
+   // }
 }
