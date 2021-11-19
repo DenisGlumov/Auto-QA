@@ -1,3 +1,5 @@
+package Course1;
+
 /**
  * HomeWorkApp6
  *
