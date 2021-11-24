@@ -1,5 +1,4 @@
 package Course1;
-
 /**
  * HomeWorkApp7
  *
